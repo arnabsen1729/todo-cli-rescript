@@ -71,7 +71,7 @@ function cmdDoneTodo(todoIds, pendingTodosFile, completedTodosFile) {
                       console.log("Error: todo #" + String(number) + " does not exist.");
                       return ;
                     }
-                    var completedTodo = Caml_array.get(todos, number - 1 | 0);
+                    var completedTodo = "x " + Utils.getToday(undefined) + " " + Caml_array.get(todos, number - 1 | 0);
                     FileHandling.writeTodos(pendingTodosFile, Utils.deleteItem(todos, number - 1 | 0));
                     FileHandling.appendTodos(completedTodosFile, completedTodo);
                     console.log("Marked todo #" + String(number) + " as done.");

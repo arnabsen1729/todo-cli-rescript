@@ -61,7 +61,7 @@ let cmdDoneTodo = (~todoIds, ~pendingTodosFile, ~completedTodosFile) => {
           if x < 1 || x > Belt.Array.length(todos) {
             Js.log(`Error: todo #${Belt.Int.toString(x)} does not exist.`)
           } else {
-            let completedTodo = todos[x - 1]
+            let completedTodo = `x ${Utils.getToday()} ${todos[x - 1]}`
             FileHandling.writeTodos(pendingTodosFile, Utils.deleteItem(todos, x - 1))
             FileHandling.appendTodos(completedTodosFile, completedTodo)
             Js.log(`Marked todo #${Belt.Int.toString(x)} as done.`)
